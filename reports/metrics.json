@@ -1,0 +1,248 @@
+{
+  "mode": "real",
+  "generated_at": "2026-11-16T10:40:39+00:00",
+  "dataset": {
+    "name": "COUGHVID (Zenodo 4048312)",
+    "license": "CC BY 4.0",
+    "selection": {
+      "valid_cough_threshold": 0.8,
+      "min_duration_s": 1.0,
+      "max_duration_s": 15.0,
+      "target_per_class": 500,
+      "selected_total": 1000,
+      "class_counts": {
+        "0": 500,
+        "1": 500
+      },
+      "skipped": {
+        "skipped_missing": 0,
+        "skipped_short": 0,
+        "skipped_long": 0,
+        "skipped_decode": 0
+      },
+      "excluded_covid_status": true,
+      "user_level_grouping_available": false,
+      "grouping_key": "recording uuid (fallback)",
+      "expert_labels_rows": 1493
+    },
+    "class_balance": {
+      "normal": 500,
+      "atypical": 500,
+      "normal_fraction": 0.5
+    },
+    "label_definition": "Normal = self-reported healthy with no expert pathology; atypical = self-reported symptomatic or expert pathology. COVID-19 self-reports were excluded. Expert labels used only when present.",
+    "excluded_covid_rows": true
+  },
+  "features": {
+    "count": 395,
+    "type": "log-mel, MFCC + delta, spectral statistics",
+    "window_seconds": 1.5
+  },
+  "split": {
+    "type": "StratifiedGroupKFold",
+    "n_splits": 5,
+    "grouping_key": "recording uuid (fallback)",
+    "user_level_grouping_available": false,
+    "note": "COUGHVID's public metadata has no participant identifier in this release, so recording UUID is used as the group. Participant-level leakage cannot be fully ruled out; treat metrics as an upper bound."
+  },
+  "model": {
+    "name": "StandardScaler + LogisticRegression",
+    "class_weight": "balanced",
+    "selected_C": 0.01,
+    "outer_fold_C": [
+      0.03,
+      0.01,
+      0.01,
+      0.01,
+      0.01
+    ],
+    "threshold": 0.5,
+    "n_features": 395
+  },
+  "primary_metrics": {
+    "n": 1000,
+    "threshold": 0.5,
+    "confusion_matrix": {
+      "tn": 254,
+      "fp": 246,
+      "fn": 228,
+      "tp": 272
+    },
+    "accuracy": 0.526,
+    "balanced_accuracy": 0.526,
+    "sensitivity": 0.544,
+    "specificity": 0.508,
+    "precision": 0.525096525096525,
+    "npv": 0.5269709543568465,
+    "f1": 0.5343811394891945,
+    "roc_auc": 0.531766,
+    "pr_auc": 0.5219342321627776,
+    "prevalence": 0.5
+  },
+  "bootstrap_ci_95": {
+    "accuracy": {
+      "lower": 0.494,
+      "upper": 0.559
+    },
+    "sensitivity": {
+      "lower": 0.49701316414409946,
+      "upper": 0.5885074552683895
+    },
+    "specificity": {
+      "lower": 0.463363810870883,
+      "upper": 0.5524778978853909
+    },
+    "roc_auc": {
+      "lower": 0.49547696620731924,
+      "upper": 0.5681045004855031
+    },
+    "pr_auc": {
+      "lower": 0.4805222384227137,
+      "upper": 0.570559794556876
+    },
+    "_meta": {
+      "rounds": 1000,
+      "valid_rounds": 1000
+    }
+  },
+  "per_fold": [
+    {
+      "n": 200,
+      "threshold": 0.5,
+      "confusion_matrix": {
+        "tn": 51,
+        "fp": 49,
+        "fn": 47,
+        "tp": 53
+      },
+      "accuracy": 0.52,
+      "balanced_accuracy": 0.52,
+      "sensitivity": 0.53,
+      "specificity": 0.51,
+      "precision": 0.5196078431372549,
+      "npv": 0.5204081632653061,
+      "f1": 0.5247524752475248,
+      "roc_auc": 0.5273000000000001,
+      "pr_auc": 0.5248903163923324,
+      "prevalence": 0.5,
+      "fold": 1,
+      "best_C": 0.03
+    },
+    {
+      "n": 200,
+      "threshold": 0.5,
+      "confusion_matrix": {
+        "tn": 51,
+        "fp": 49,
+        "fn": 47,
+        "tp": 53
+      },
+      "accuracy": 0.52,
+      "balanced_accuracy": 0.52,
+      "sensitivity": 0.53,
+      "specificity": 0.51,
+      "precision": 0.5196078431372549,
+      "npv": 0.5204081632653061,
+      "f1": 0.5247524752475248,
+      "roc_auc": 0.5079,
+      "pr_auc": 0.5139573646792173,
+      "prevalence": 0.5,
+      "fold": 2,
+      "best_C": 0.01
+    },
+    {
+      "n": 200,
+      "threshold": 0.5,
+      "confusion_matrix": {
+        "tn": 48,
+        "fp": 52,
+        "fn": 42,
+        "tp": 58
+      },
+      "accuracy": 0.53,
+      "balanced_accuracy": 0.53,
+      "sensitivity": 0.58,
+      "specificity": 0.48,
+      "precision": 0.5272727272727272,
+      "npv": 0.5333333333333333,
+      "f1": 0.5523809523809524,
+      "roc_auc": 0.5437000000000001,
+      "pr_auc": 0.5223174621315493,
+      "prevalence": 0.5,
+      "fold": 3,
+      "best_C": 0.01
+    },
+    {
+      "n": 200,
+      "threshold": 0.5,
+      "confusion_matrix": {
+        "tn": 59,
+        "fp": 41,
+        "fn": 47,
+        "tp": 53
+      },
+      "accuracy": 0.56,
+      "balanced_accuracy": 0.56,
+      "sensitivity": 0.53,
+      "specificity": 0.59,
+      "precision": 0.5638297872340425,
+      "npv": 0.5566037735849056,
+      "f1": 0.5463917525773195,
+      "roc_auc": 0.5486,
+      "pr_auc": 0.5331286048243535,
+      "prevalence": 0.5,
+      "fold": 4,
+      "best_C": 0.01
+    },
+    {
+      "n": 200,
+      "threshold": 0.5,
+      "confusion_matrix": {
+        "tn": 45,
+        "fp": 55,
+        "fn": 45,
+        "tp": 55
+      },
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "sensitivity": 0.55,
+      "specificity": 0.45,
+      "precision": 0.5,
+      "npv": 0.5,
+      "f1": 0.5238095238095238,
+      "roc_auc": 0.5257000000000001,
+      "pr_auc": 0.5601595525707216,
+      "prevalence": 0.5,
+      "fold": 5,
+      "best_C": 0.01
+    }
+  ],
+  "fold_auc_mean": 0.5306400000000001,
+  "fold_auc_std": 0.016169353728581724,
+  "baselines": {
+    "majority_class": {
+      "predicted_class": "normal",
+      "accuracy": 0.5,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "roc_auc": 0.5,
+      "pr_auc": 0.5
+    },
+    "chance": {
+      "accuracy": 0.5,
+      "sensitivity": 0.5,
+      "specificity": 0.5,
+      "roc_auc": 0.5,
+      "pr_auc": 0.5
+    }
+  },
+  "limitations": [
+    "Research prototype only; it does not diagnose disease.",
+    "Healthy vs symptomatic is a noisy, self-reported label; no clinical confirmation.",
+    "Crowdsourced phone recordings vary in microphone, room and cough technique.",
+    "The balanced 1,000-clip subset is small and not representative of Delhi.",
+    "No participant identifier in the public metadata; grouping uses recording UUID.",
+    "Metrics are cross-validated on COUGHVID, not on external or local Delhi data."
+  ],
+  "runtime_seconds": 32.7
+}
