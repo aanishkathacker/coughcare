@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.pytest_cache/
+.ruff_cache/
+
+# Data (large, reproducible)
+data/raw/
+data/processed/
+!data/README.md
+*.zip
+*.webm
+*.wav
+*.ogg
+*.mp3
+
+# Models: keep the small trained artifact, ignore experiments
+models/*.joblib
+models/*.pkl
+!models/coughcare_lr.joblib
+models/experiments/
+
+# App / OS
+.streamlit/secrets.toml
+.DS_Store
+screenshots/*.mp4
+reports/*.log
+reports/tmp/
+
+# Sample clips used by the demo buttons (small, CC BY 4.0, attributed)
+!assets/samples/*.webm

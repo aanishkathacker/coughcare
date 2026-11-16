@@ -1,0 +1,13 @@
+# CoughCare runtime dependencies
+numpy>=1.26,<3
+pandas>=2.1,<4
+scipy>=1.11,<2
+scikit-learn>=1.4,<2
+soundfile>=0.12,<1
+av>=12,<20
+librosa>=0.10,<2
+streamlit>=1.40,<2
+matplotlib>=3.8,<4
+Pillow>=10,<13
+joblib>=1.3,<2
+pytest>=8,<10
