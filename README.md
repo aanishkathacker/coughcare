@@ -440,7 +440,7 @@ coughcare/
 ├── assets/
 │   ├── logo.svg / logo.png
 │   ├── theme.css
-│   └── samples/                # two labelled demo clips + attribution
+│   └── samples/                # demo clips + upload validation + attribution
 ├── src/coughcare/
 │   ├── audio.py                # PyAV/soundfile decode, quality, windowing
 │   ├── features.py             # 395-d feature extraction
@@ -473,9 +473,10 @@ If you use COUGHVID, cite:
 > corpus for the study of large-scale cough analysis algorithms.* Scientific Data
 > **8**, 156 (2021). <https://doi.org/10.1038/s41597-021-00937-4>
 
-COUGHVID is released under **CC BY 4.0**. The two demo clips in
-`assets/samples/` are from COUGHVID and retain that licence; see
-`assets/samples/README.md` for UUIDs and attribution.
+COUGHVID is released under **CC BY 4.0**. The clips in
+`assets/samples/` (two button samples plus one upload-validation clip) are from
+COUGHVID and retain that licence; see `assets/samples/README.md` for UUIDs and
+attribution.
 
 CoughCare code: **MIT** (see `LICENSE`). CoughCare is not affiliated with EPFL or
 the COUGHVID authors.
