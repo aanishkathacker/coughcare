@@ -45,6 +45,6 @@ confidence score and a scrolling waveform.
 - COUGHVID 4048312 has no participant ID, so recording UUID is used as the
   grouping key. This limitation is disclosed in the app.
 - Full repository, reproduction steps and screenshots:
-  <https://github.com/aanishkathacker/coughcare> (after publishing).
+  <https://github.com/aanishkathacker/coughcare>.
 
 Dataset: COUGHVID (Zenodo 4048312), CC BY 4.0. Code: MIT.

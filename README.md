@@ -356,10 +356,11 @@ reported rather than hidden.
 
 ## Deployment: public link
 
-**Status:** deployment is fully prepared, but **no public app was published in
-this session** and no account credentials were used. The steps below create a
-public URL. A GitHub CLI login exists on this machine, but publishing a repository
-is a real-world action and was not performed without confirmation.
+**Status:** the source is published at
+<https://github.com/aanishkathacker/coughcare>. A hosted app has **not** been
+deployed yet: Streamlit Community Cloud needs an interactive GitHub login, and no
+Hugging Face token is available on this machine. The steps below create the
+public app URL.
 
 The app only needs `app.py`, `src/`, `assets/`, `models/coughcare_lr.joblib` and
 `reports/metrics.json` + `reports/figures/`. The 951 MB dataset is **not** needed
@@ -367,7 +368,9 @@ at runtime.
 
 ### Option A — Streamlit Community Cloud (recommended)
 
-1. Create a public GitHub repository and push:
+1. The repository is already public:
+   <https://github.com/aanishkathacker/coughcare>. To deploy from your own fork,
+   create one first:
 
    ```bash
    cd coughcare
